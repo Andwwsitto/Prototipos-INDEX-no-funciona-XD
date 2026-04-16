@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro</title>
+  <link rel="stylesheet" href="LoginStyle.css">
+</head>
+<body>
+  <div class="card">
+    <div class="card-header">
+      <h1 class="title">Registro y Login</h1>
+      <p class="subtitle">Adáptate como un mapache y la vida se volverá más fácil.</p>
+    </div>
+    <div class="tabs">
+      <button class="tab-button active" id="tab-login" type="button" onclick="togglePanel('login')">Iniciar sesión</button>
+      <button class="tab-button" id="tab-register" type="button" onclick="togglePanel('register')">Registrarse</button>
+    </div>
+
+    <div class="form-panel" id="panel-login">
+      <div class="form-group">
+        <label for="email-login">Correo electrónico</label>
+        <input type="email" id="email-login" placeholder="tu@correo.com" />
+        <p class="error-msg" id="login-email-error">Por favor ingresa un correo válido.</p>
+      </div>
+      <div class="form-group">
+        <label for="password-login">Contraseña</label>
+        <input type="password" id="password-login" placeholder="••••••••" />
+        <p class="error-msg" id="login-pass-error">La contraseña no puede estar vacía.</p>
+      </div>
+      <button class="btn-primary" type="button" onclick="handleLogin(event)">Continuar</button>
+      <p class="text-link">¿Aún no tienes cuenta? <a href="#" onclick="togglePanel('register'); return false;">Regístrate aquí</a></p>
+    </div>
+
+    <div class="form-panel" id="panel-register" style="display:none;">
+      <div class="form-group">
+        <label for="id-register">ID</label>
+        <input type="text" id="id-register" placeholder="12345" />
+        <p class="error-msg" id="register-id-error">El ID es obligatorio.</p>
+      </div>
+      <div class="form-group">
+        <label for="nombre-register">Nombre</label>
+        <input type="text" id="nombre-register" placeholder="Nombre completo" />
+        <p class="error-msg" id="register-nombre-error">El nombre es obligatorio.</p>
+      </div>
+      <div class="form-group">
+        <label for="grupo-register">Grupo</label>
+        <input type="text" id="grupo-register" placeholder="Ej. 3A" />
+        <p class="error-msg" id="register-grupo-error">El grupo es obligatorio.</p>
+      </div>
+      <div class="form-group">
+        <label for="especialidad-register">Especialidad</label>
+        <select id="especialidad-register">
+          <option value="">Selecciona una especialidad</option>
+          <option value="Programacion">Programación</option>
+          <option value="Alimentos">Alimentos</option>
+          <option value="Mecanica">Mecánica</option>
+          <option value="Mecatronica">Mecatrónica</option>
+        </select>
+        <p class="error-msg" id="register-especialidad-error">Selecciona una especialidad.</p>
+      </div>
+      <div class="form-group">
+        <label for="horario-register">Horario</label>
+        <select id="horario-register">
+          <option value="">Selecciona un horario</option>
+          <option value="matutino">Matutino</option>
+          <option value="vespertino">Vespertino</option>
+        </select>
+        <p class="error-msg" id="register-horario-error">Selecciona un horario.</p>
+      </div>
+      <button class="btn-primary" type="button" onclick="handleRegister(event)">Guardar</button>
+      <p class="text-link">¿Ya estás registrado? <a href="#" onclick="togglePanel('login'); return false;">Inicia sesión</a></p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="LoginIndex.js"></script>
+</body>
+</html>
